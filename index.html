@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>#ShareYourISM: A project brought to you by ISM</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<meta content="Some ISM Description" name="description"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+		<link rel="shortcut icon" href="/favicon.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="images/logo-icons/apple-icon.png">
+		<link rel="icon" type="image/png" sizes="192x192" href="images/logo-icons/android-icon.png">
+		<meta name="msapplication-TileImage" content="images/logo-icons/ms-icon.png">
+
+		<meta name="msapplication-TileColor" content="#000000">
+		<meta name="theme-color" content="#000000">
+
+	</head>
+
+	<body>
+
+		<div id="root">
+			
+		</div>
+		
+
+		<!-- Scripts -->
+		<script src="/js/bundle.js"></script>
+
+		<!-- Attach CSS files after DOM load -->
+		<script>
+			var loadDeferredStyles = function() {
+				var addStylesNode = document.getElementById("deferred-styles");
+				var replacement = document.createElement("div");
+				replacement.innerHTML = addStylesNode.textContent;
+				document.body.appendChild(replacement)
+				addStylesNode.parentElement.removeChild(addStylesNode);
+			};
+			var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+			webkitRequestAnimationFrame || msRequestAnimationFrame;
+			if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+			else window.addEventListener('load', loadDeferredStyles);
+		</script>
+
+		<!-- CSS files which needs to be attached -->
+		<noscript id="deferred-styles">
+			<!-- Main CSS file -->
+			<link href="/css/main.min.css" rel="stylesheet">
+		</noscript>
+	</body>
+</html>
