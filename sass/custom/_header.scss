@@ -1,0 +1,254 @@
+#header{
+	height: 80px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	background-color: theme-color("primary");
+	position: absolute;
+	width: 100%;
+	top: 0;
+	z-index: $zindex-fixed;
+	
+	.nav-holder{
+		height: 100%;
+	}
+	
+	.logo{
+		display: block;
+		height: 100%;
+		
+		img{
+			display: block;
+			height: 100%;
+		}
+	}
+
+	nav{
+
+		ul{
+			text-align: left;
+
+			li{
+				display: inline-block;
+			}
+		}
+
+		a,link{
+			font-family: $title-font;
+			font-weight: 100;
+			color: white;
+			font-size: 14px;
+			margin: 0 20px;
+			text-decoration: none;
+		}
+		
+		&.secondary-nav{
+			a{
+				font-weight: 500;
+				letter-spacing: 1.5px;
+			}
+		}
+	}
+
+	.mobile-nav{
+		display: none;		
+	}
+
+	@include media-breakpoint-only(lg) {
+		nav{
+			a{
+				margin: 0 10px;
+			}
+		}
+	}
+
+	@include media-breakpoint-down(md) {
+		padding-top: 20px;
+		padding-bottom: 20px;
+		position: fixed;
+
+		.hamburger{
+			display: block;
+			overflow: visible;
+			margin: 0;
+			cursor: pointer;
+			transition-timing-function: linear;
+			transition-duration: .15s;
+			transition-property: opacity, filter;
+			text-transform: none;
+			border: 0;
+
+			&.is-active{
+				.hamburger-inner{
+					transition-delay: .12s;
+					transition-timing-function: cubic-bezier(.215, .61, .355, 1);
+					transform: rotate(225deg);
+
+					&:before{
+						top: 0;
+						transition: top .1s ease-out, opacity .1s ease-out .12s;
+					}
+					&:after{
+						bottom: 0;
+						transition: bottom .1s ease-out, transform .22s cubic-bezier(.215, .61, .355, 1) .12s;
+						transform: rotate(-90deg);
+					}
+
+					&,
+					&:before,
+					&:after{
+						width: 35px;
+					}
+				}
+
+				~ .mobile-nav{
+
+					.mobile-nav-holder{
+						visibility:visible;
+						opacity:1;
+					}
+				}
+
+			}
+
+			.hamburger-box {
+				position: relative;
+				display: inline-block;
+				height: 24px;
+				width: 35px;
+			}
+
+			.hamburger-inner {
+				top: 50%;
+				display: block;
+				transition-timing-function: cubic-bezier(.55, .055, .675, .19);
+				transition-duration: .22s;
+				width: 30px;
+
+				&,
+				&:before,
+				&:after{
+					position: absolute;
+					height: 3px;	
+					transition-timing-function: ease;
+					transition-duration: .15s;
+					transition-property: transform;
+					border-radius: 1px;
+					background-color: white;
+				}
+
+				&:before,
+				&:after{
+					content: "";
+					display: block;
+				}
+
+				&:before{
+					width: 35px;
+					top: -11px;
+					transition: top .1s ease-in .25s, opacity .1s ease-in;
+				}
+
+				&:after{
+					width: 25px;
+					bottom: -11px;
+					transition: bottom .1s ease-in .25s, transform .22s cubic-bezier(.55, .055, .675, .19);
+				}
+			}
+		}
+
+		.mobile-nav{
+			display: block;
+			
+			ul{
+				li{
+					display: block;
+					text-align: center;
+					margin-bottom: 45px;
+					a{
+						font-size: 30px;
+						line-height: 1;
+						font-weight: 100;
+					}
+				}
+			}
+
+			&-holder{
+				overflow-y: scroll;
+				position: absolute;
+				margin-top: 80px;
+				left: 0;
+				top: 0;
+				right: -20px;
+				background-color: theme-color("primary");
+				padding-top: 30px;
+    			height: calc( 100vh - 80px );
+				visibility:hidden;
+				opacity:0;
+				transition:visibility 0.3s ease-in,opacity 0.3s ease-in;
+			}
+
+			&-title{
+				position: absolute;
+				top: 17px;
+				left: 100px;
+				right: 100px;
+				text-align: center;
+				font-size: 30px;
+				font-weight: 500;
+				font-family: $title-font;
+				color: white;
+
+				p{
+					margin: 0;
+					cursor: pointer;
+
+					&:after{
+						content: '';
+						height: 15px;
+						width: 0;
+						border-top: 8px solid #fff;
+						border-left: 8px solid transparent;
+						border-right: 8px solid transparent;
+						display: inline-block;
+						line-height: 59px;
+						margin-left: 10px;
+					}
+				}
+			}
+
+			.secondary-nav{
+
+				ul{
+					li{
+						margin-top: 80px;
+						
+						a{
+							&:after{
+								content: ' #ShareYourISM';
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@include media-breakpoint-down(xs) {
+		
+
+		.mobile-nav-title{
+			left: 60px;
+			right: 60px;
+
+			p{
+				font-size: 18px;
+				line-height: 43px;
+
+				&:after{
+					height: 10px;
+				}
+			}
+		}
+	}
+}
+

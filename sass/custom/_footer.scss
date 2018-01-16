@@ -1,0 +1,56 @@
+#footer{
+	height: 140px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	background-color: theme-color("primary");
+	color: white;
+
+	.footer-holder{
+		height: 100%;
+	}
+
+	.logo{
+		display: block;
+		height: 100%;
+		
+		img{
+			display: block;
+			height: 100%;
+		}
+	}
+
+	span{
+		font-family: $title-font;
+		font-size: 24px;
+		line-height: 1.46;
+		font-weight: 100;
+		text-align: center;
+	}
+
+	.social-links{
+		text-align: right;
+
+		li{
+			display: inline-block;
+
+			+ li{
+				margin-left: 60px;
+			}
+
+			img{
+				height: 100%;
+			}
+		}
+	}
+
+	@include media-breakpoint-down(md) {
+		height: auto;
+
+		.footer-holder{
+			flex-direction: column;
+		}
+		.social-links{
+			margin-top: 60px;
+		}
+	}
+}

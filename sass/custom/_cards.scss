@@ -1,0 +1,63 @@
+.cards{
+	padding-top: 35px;
+	padding-bottom: 20px;
+
+	&-item{
+		text-align: center;
+
+		img{
+			margin-bottom: 15px;
+		}
+
+		h3{
+			font-size: 24px;
+			font-weight: 500;
+			line-height: 2.5;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			margin-bottom: 0;
+		}
+
+		span{
+			font-family: $title-font;
+			font-size: 22px;
+			font-weight: 500;
+			line-height: 2.73;
+			letter-spacing: 1.8px;
+			text-transform: uppercase;
+			display: block;
+			margin-bottom: 5px;
+		}
+
+		p{
+			font-family: $title-font;
+			font-size: 32px;
+			font-weight: 300;
+			line-height: 1.47;
+			margin-bottom: 50px;
+		}
+
+		.btn{
+			margin-bottom: 80px;
+		}
+	}
+
+
+	@include media-breakpoint-down(sm) {
+		&-item{
+			p{
+				margin-bottom: 30px;
+			}
+			.btn{
+				margin-bottom: 60px;
+			}
+		}
+	}
+}
+
+#articles{
+	h1{
+		padding-top: 60px;
+		margin-bottom: 60px;
+	}
+}
